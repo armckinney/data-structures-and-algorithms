@@ -8,7 +8,7 @@ LABEL   deployable="false" \
 # ----- Environment Setup -----
 
 # Set Workspace directory
-ARG WORKSPACE=/workspaces/template-python
+ARG WORKSPACE=/workspaces/data-structures-and-algorithms
 ENV WORKSPACE=${WORKSPACE}
 
 # Avoid warnings by switching to noninteractive
