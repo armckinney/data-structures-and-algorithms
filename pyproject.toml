@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "template-python"
+name = "data-structures-and-algorithms"
 version = "0.1.0"
 description = ""
 authors = ["armckinney"]
 packages = [
-    { include = "snek_case" }
+    { include = "data_structures_and_algorithms" }
 ]
 
 [tool.poetry.dependencies]

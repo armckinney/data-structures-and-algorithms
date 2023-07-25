@@ -24,12 +24,14 @@ variable "location" {
 
 
 locals {
-  application                  = "snek_case"
-  workspace_root               = "/workspaces/template-python"
-  app_dockerfile_relative_path = "./snek_case/Dockerfile"
-  app_checksum                 = sha1(join("", [for f in fileset(path.module, "../../snek_case/*") : filesha1(f)]))
+  application                  = "data_structures_and_algorithms"
+  workspace_root               = "/workspaces/data-structures-and-algorithms"
+  app_dockerfile_relative_path = "./data_structures_and_algorithms/Dockerfile"
+  app_checksum                 = sha1(join("", [for f in fileset(path.module, "../../data_structures_and_algorithms/*") : filesha1(f)]))
   tags = {
     application = local.application
     environment = var.environment
   }
 }
+
+

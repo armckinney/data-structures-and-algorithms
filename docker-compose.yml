@@ -5,6 +5,5 @@ services:
       dockerfile: ./.devcontainer/Dockerfile
       context: ./
     volumes:
-      - .:/workspaces/template-python:cached
-      - /var/run/docker.sock:/var/run/docker.sock
+      - .:/workspaces/data-structures-and-algorithms:cached
     command: /bin/sh -c "while sleep 1000; do :; done"

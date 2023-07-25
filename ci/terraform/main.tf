@@ -2,7 +2,7 @@
 terraform {
   backend "azurerm" {
     container_name = "terraform"
-    key            = "/snek_case/dev.tfstate"
+    key            = "/data_structures_and_algorithms/dev.tfstate"
   }
 
   required_providers {
@@ -31,3 +31,4 @@ provider "azurerm" {
 provider "docker" {
   host = "unix:///var/run/docker.sock"
 }
+

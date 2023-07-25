@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/schema",
-    "title": "template-python Config",
-    "description": "template-python Configuration Schema",
+    "title": "data-structures-and-algorithms Config",
+    "description": "data-structures-and-algorithms Configuration Schema",
     "type": "object",
     "required": [
         "snek_type"

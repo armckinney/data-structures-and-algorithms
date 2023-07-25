@@ -1,4 +1,4 @@
-from snek_case.sneks import NormalSnek
+from data_structures_and_algorithms.sneks import NormalSnek
 
 
 def test_can_create() -> None:
@@ -9,3 +9,4 @@ def test_can_create() -> None:
 def test_type_is_normal() -> None:
     # Assemble / Act / Assert
     assert NormalSnek.snek_type == "normal"
+
