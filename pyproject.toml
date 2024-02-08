@@ -3,6 +3,10 @@ name = "data-structures-and-algorithms"
 version = "0.1.0"
 description = ""
 authors = ["armckinney"]
+packages = [
+    { include ="algorithms", from = "src" }, 
+    { include ="data_structures", from = "src" }
+]
 
 [tool.poetry.dependencies]
 python = "^3.8"

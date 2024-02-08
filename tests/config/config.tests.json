@@ -1,4 +1,0 @@
-{
-    "$schema": "./schema/config.tests.schema.json",
-    "data_path": "tests/data"
-}

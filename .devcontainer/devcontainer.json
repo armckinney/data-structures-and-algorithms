@@ -13,17 +13,17 @@
 					"bash": {
 						"path": "bash",
 						"icon": "terminal-bash"
-					},
-					"pwsh": {
-						"path": "pwsh",
-						"icon": "terminal-powershell"
 					}
 				}
 			},
 			"extensions": [
+				"github.vscode-github-actions",
+				"ms-python.black-formatter",
+				"ms-python.flake8",
+				"ms-python.isort",
+				"ms-python.mypy-type-checker",
 				"ms-python.python",
 				"ms-python.vscode-pylance",
-				"ms-azuretools.vscode-docker",
 				"shd101wyy.markdown-preview-enhanced"
 			]
 		}
