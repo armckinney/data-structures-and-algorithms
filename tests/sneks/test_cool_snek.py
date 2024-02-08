@@ -1,4 +1,4 @@
-from snek_case.sneks import CoolSnek
+from data_structures_and_algorithms.sneks import CoolSnek
 
 
 def test_can_create() -> None:
@@ -9,3 +9,4 @@ def test_can_create() -> None:
 def test_type_is_cool() -> None:
     # Assemble / Act / Assert
     assert CoolSnek.snek_type == "cool"
+

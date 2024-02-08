@@ -1,7 +1,7 @@
 from typing import Any
 
 import pytest
-from snek_case.core import ConfigurationProvider
+from data_structures_and_algorithms.core import ConfigurationProvider
 
 
 def test_cannot_create() -> None:
@@ -21,3 +21,4 @@ def test_can_subclass() -> None:
 
     # Act / Assert
     TestConfigurationProvider()
+

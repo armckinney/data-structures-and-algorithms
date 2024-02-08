@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import Iterable
 
 import pytest
-from snek_case.core import JsonConfigurationProvider
+from data_structures_and_algorithms.core import JsonConfigurationProvider
 
 # test configuration
 TEST_CONFIG_FILE = os.path.join(os.path.dirname(__file__), "config/config.tests.json")
@@ -39,3 +39,4 @@ def data_path() -> str:
 @pytest.fixture(scope="session")
 def output_path() -> str:
     return os.path.join(test_data_path, "output")
+

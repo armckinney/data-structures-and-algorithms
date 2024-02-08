@@ -1,5 +1,5 @@
 import pytest
-from snek_case.sneks import Snek
+from data_structures_and_algorithms.sneks import Snek
 
 
 class TestSnek(Snek):
@@ -24,3 +24,4 @@ def test_object_is_snek() -> None:
 
     # Assert
     assert str(snek) == TestSnek.snek
+
