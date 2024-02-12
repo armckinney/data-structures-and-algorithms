@@ -279,3 +279,14 @@ def test_can_convert_to_string() -> None:
 
     # Assert
     assert ll.to_string() == "".join([str(i) for i in TEST_LIST])
+
+
+def test_can_make_circular() -> None:
+    # Assemble
+    ll = LinkedList.from_list(TEST_LIST)
+
+    # Act
+    ll.make_circular()
+
+    # Assert
+    assert ll.tail.next == ll.head
