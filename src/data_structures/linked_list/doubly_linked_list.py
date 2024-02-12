@@ -14,14 +14,14 @@ class DoublyLinkedList(LinkedListMixin):
     def from_list(cls, list: list) -> DoublyLinkedList:
         return super().from_list(list)
 
-    def _link(self, node: TNode, next_node: TNode) -> TNode:
+    def _link(self, node: TNode, next_node: TNode) -> None:
         assert isinstance(node, DoublyLinkedListNode)
         assert isinstance(next_node, DoublyLinkedListNode)
 
         node.next = next_node
         next_node.previous = node
 
-    def _get_previous_node(self, node: TNode) -> None:
+    def _get_previous_node(self, node: TNode) -> TNode:
         assert isinstance(node, DoublyLinkedListNode)
         return node.previous
 

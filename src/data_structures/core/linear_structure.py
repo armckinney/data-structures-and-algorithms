@@ -1,12 +1,13 @@
-from abc import ABC, abstractclassmethod, abstractmethod
-from typing import Any, Generic, TypeVar
+from abc import ABC, abstractmethod
+from typing import Generic, TypeVar
 
 TStructure = TypeVar("TStructure")
 
 
 class LinearStructure(ABC, Generic[TStructure]):
 
-    @abstractclassmethod
+    @classmethod
+    @abstractmethod
     def from_list(cls) -> TStructure:
         raise NotImplementedError
 

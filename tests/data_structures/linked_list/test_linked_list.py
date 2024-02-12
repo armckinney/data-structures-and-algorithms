@@ -235,7 +235,6 @@ def test_can_delete_only_one_occurences() -> None:
 
     # Act
     ll.delete(TEST_LIST[0], all_occurences=False)
-    lt = ll.to_list()
 
     # Assert
     assert ll.to_list() == __test_list[1:]
