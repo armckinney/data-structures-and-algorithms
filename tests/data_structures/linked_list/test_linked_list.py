@@ -46,6 +46,9 @@ def test_append_sets_head_and_tail() -> None:
         ll.append(i)
 
     # Assert
+    assert ll.head
+    assert ll.tail
+
     assert ll.head.value == TEST_LIST[0]
     assert ll.tail.value == TEST_LIST[-1]
 
@@ -85,6 +88,8 @@ def test_prepend_sets_head_and_tail() -> None:
         ll.prepend(i)
 
     # Assert
+    assert ll.head
+    assert ll.tail
     assert ll.head.value == TEST_LIST[0]
     assert ll.tail.value == TEST_LIST[-1]
 
@@ -141,6 +146,7 @@ def test_pop_head_sets_head() -> None:
     ll.pop()
 
     # Assert
+    assert ll.head
     assert ll.head.value == TEST_LIST[1]
 
 
@@ -152,6 +158,7 @@ def test_pop_tail_sets_tail() -> None:
     ll.pop(tail=True)
 
     # Assert
+    assert ll.tail
     assert ll.tail.value == TEST_LIST[-2]
 
 
@@ -174,6 +181,7 @@ def test_delete_head_sets_head() -> None:
     ll.delete(TEST_LIST[0])
 
     # Assert
+    assert ll.head
     assert ll.head.value == TEST_LIST[1]
 
 
@@ -211,6 +219,7 @@ def test_delete_tail_sets_tail() -> None:
     ll.delete(TEST_LIST[-1])
 
     # Assert
+    assert ll.tail
     assert ll.tail.value == TEST_LIST[-2]
 
 
@@ -288,4 +297,5 @@ def test_can_make_circular() -> None:
     ll.make_circular()
 
     # Assert
+    assert ll.tail
     assert ll.tail.next == ll.head

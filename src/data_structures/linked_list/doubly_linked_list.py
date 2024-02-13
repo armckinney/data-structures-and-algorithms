@@ -1,9 +1,10 @@
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any, Optional, cast
 
 from .doubly_linked_list_node import DoublyLinkedListNode
-from .linked_list_mixin import LinkedListMixin, TNode
+from .linked_list_mixin import LinkedListMixin
+from .linked_list_node import LinkedListNode
 
 
 class DoublyLinkedList(LinkedListMixin):
@@ -12,16 +13,20 @@ class DoublyLinkedList(LinkedListMixin):
 
     @classmethod
     def from_list(cls, list: list) -> DoublyLinkedList:
-        return super().from_list(list)
+        return cast(DoublyLinkedList, super().from_list(list))
 
-    def _link(self, node: TNode, next_node: TNode) -> None:
+    def _link(
+        self, node: Optional[LinkedListNode], next_node: Optional[LinkedListNode]
+    ) -> None:
         assert isinstance(node, DoublyLinkedListNode)
         assert isinstance(next_node, DoublyLinkedListNode)
 
         node.next = next_node
         next_node.previous = node
 
-    def _get_previous_node(self, node: TNode) -> TNode:
+    def _get_previous_node(
+        self, node: Optional[LinkedListNode]
+    ) -> Optional[LinkedListNode]:
         assert isinstance(node, DoublyLinkedListNode)
         return node.previous
 

@@ -1,14 +1,15 @@
+from __future__ import annotations
+
 from abc import ABC, abstractmethod
-from typing import Generic, TypeVar
 
-TStructure = TypeVar("TStructure")
+from .data_structure import DataStructure
 
 
-class LinearStructure(ABC, Generic[TStructure]):
+class LinearStructure(DataStructure, ABC):
 
     @classmethod
     @abstractmethod
-    def from_list(cls) -> TStructure:
+    def from_list(cls, list: list) -> LinearStructure:
         raise NotImplementedError
 
     @abstractmethod

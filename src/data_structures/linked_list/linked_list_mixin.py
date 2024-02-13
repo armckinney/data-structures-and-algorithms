@@ -1,26 +1,26 @@
 from abc import ABC, abstractmethod
-from typing import Any, Optional, TypeVar
+from typing import Any, Optional
 
 from data_structures.core import LinearStructure
 
 from .linked_list_node import LinkedListNode
 
-TNode = TypeVar("TNode", bound=LinkedListNode)
-
 
 class LinkedListMixin(LinearStructure, ABC):
-    head: Optional[TNode] = None
-    tail: Optional[TNode] = None
+    head: Optional[LinkedListNode] = None
+    tail: Optional[LinkedListNode] = None
 
     def __init__(self, circular: bool = False) -> None:
         self.is_circular = circular
 
     @abstractmethod
-    def _link(self, node: TNode, next_node: TNode) -> None:
+    def _link(
+        self, node: Optional[LinkedListNode], next_node: Optional[LinkedListNode]
+    ) -> None:
         raise NotImplementedError
 
     @abstractmethod
-    def _get_previous_node(self, node: TNode) -> TNode:
+    def _get_previous_node(self, node: LinkedListNode) -> Optional[LinkedListNode]:
         raise NotImplementedError
 
     @property
@@ -36,7 +36,7 @@ class LinkedListMixin(LinearStructure, ABC):
 
     def to_list(self) -> list:
         this_node = self.head
-        value_list = []
+        value_list: list[Any] = []
 
         while this_node:
             value_list.append(this_node.value)
@@ -51,10 +51,10 @@ class LinkedListMixin(LinearStructure, ABC):
     def enforce_circular(self) -> None:
         if self.is_circular:
             self._link(self.tail, self.head)
-        else:
+        elif self.tail:
             self.tail.next = None
 
-    def append(self, node: TNode) -> None:
+    def append(self, node: LinkedListNode) -> None:
         if not self.head:
             self.head = node
             self.tail = node
@@ -63,7 +63,7 @@ class LinkedListMixin(LinearStructure, ABC):
             self.tail = node
             self.enforce_circular()
 
-    def prepend(self, node: TNode) -> None:
+    def prepend(self, node: LinkedListNode) -> None:
         # add a value to the head of the list
         if not self.tail:
             self.head = node
@@ -75,31 +75,31 @@ class LinkedListMixin(LinearStructure, ABC):
 
     def pop(self, tail: bool = False) -> Optional[Any]:
         # remove the head/tail from the list and return it
-        popped: Optional[TNode] = None
+        popped: Any = None
 
         # empty list
-        if not self.head:
+        if not self.head or not self.tail:
             popped = None
 
         # pop tail
         elif tail:
             # pop tail
-            popped = self.tail
+            popped = self.tail.value
 
-            previous_node: TNode = self._get_previous_node(popped)
+            previous_node = self._get_previous_node(self.tail)
             self.tail = previous_node
             self.enforce_circular()
 
         # pop head
         else:
-            popped = self.head
+            popped = self.head.value
             self.head = self.head.next
 
-        return popped.value
+        return popped
 
     def delete(self, value: Any, all_occurences: bool = False) -> None:
         # delete occurence(s) of a value
-        previous_node: Optional[TNode] = None
+        previous_node: Optional[LinkedListNode] = None
         deleted_flag: bool = False
         this_node = self.head
 
@@ -126,9 +126,11 @@ class LinkedListMixin(LinearStructure, ABC):
 
     def reverse(self) -> None:
         # reverse the list in place
-        previous_node: Optional[TNode] = self.head
+        if not self.head:
+            return
+        previous_node = self.head
         this_node = previous_node.next
-        next_node: Optional[TNode] = None
+        next_node: Optional[LinkedListNode] = None
 
         while this_node:
             # store next node

@@ -8,4 +8,4 @@ from data_structures.core import Node
 
 @dataclass
 class LinkedListNode(Node):
-    next: Optional[LinkedListNode] = None
+    next: Optional[LinkedListNode]
