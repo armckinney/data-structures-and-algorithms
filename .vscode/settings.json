@@ -25,10 +25,10 @@
         "diffEditor.ignoreTrimWhitespace": false,
         "editor.formatOnType": true,
         "editor.formatOnSave": true,
-        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.defaultFormatter": "ms-python.black-formatter"
     },
     "mypy-type-checker.args": [
-        "--config-file=../mypy.ini"
+        "--config-file=${workspaceFolder}/mypy.ini"
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,
