@@ -16,6 +16,15 @@ def test_can_verify_empty() -> None:
     assert q.empty
 
 
+def test_can_verify_not_empty() -> None:
+    # Assemble
+    q = Queue()
+    q.enqueue(1)
+
+    # Act / Assert
+    assert not q.empty
+
+
 def test_can_enqueue() -> None:
     # Assemble
     q = Queue()
@@ -75,7 +84,7 @@ def test_enqueue_does_not_change_next_dequeue() -> None:
         validation_peeks.append(q.peek())
 
     # Assert
-    assert [peek == TEST_LIST[0] for peek in validation_peeks]
+    assert all([peek == TEST_LIST[0] for peek in validation_peeks])
 
 
 def test_can_dequeue() -> None:

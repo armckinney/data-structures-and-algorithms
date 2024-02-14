@@ -16,6 +16,15 @@ def test_can_verify_empty() -> None:
     assert ll.empty
 
 
+def test_can_verify_not_empty() -> None:
+    # Assemble
+    ll = LinkedList()
+    ll.append(1)
+
+    # Act / Assert
+    assert not ll.empty
+
+
 def test_can_append() -> None:
     # Assemble
     ll = LinkedList()
