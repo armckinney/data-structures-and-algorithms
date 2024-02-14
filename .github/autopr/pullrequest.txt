@@ -1,1 +1,1 @@
-5-New-Data-Structure-Queue
+6-New-Data-Structure-Stack
