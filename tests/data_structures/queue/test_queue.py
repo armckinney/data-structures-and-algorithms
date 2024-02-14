@@ -16,6 +16,15 @@ def test_can_verify_empty() -> None:
     assert q.empty
 
 
+def test_can_verify_not_empty() -> None:
+    # Assemble
+    q = Queue()
+    q.enqueue(1)
+
+    # Act / Assert
+    assert not q.empty
+
+
 def test_can_enqueue() -> None:
     # Assemble
     q = Queue()
