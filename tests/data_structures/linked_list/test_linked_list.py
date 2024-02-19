@@ -1,3 +1,5 @@
+from dataclasses import dataclass
+
 from data_structures import LinkedList
 
 TEST_LIST = [1, 2, 3]
@@ -308,3 +310,42 @@ def test_can_make_circular() -> None:
     # Assert
     assert ll.tail
     assert ll.tail.next == ll.head
+
+
+def test_can_find() -> None:
+    # Assemble
+    ll = LinkedList.from_list(TEST_LIST)
+
+    # Act / Assert
+    ll.find(TEST_LIST[0])
+
+
+def test_can_find_value() -> None:
+    # Assemble
+    ll = LinkedList.from_list(TEST_LIST)
+    search_value = TEST_LIST[0]
+
+    # Act / Assert
+    found = ll.find(search_value)
+
+    # Assert
+    assert found == search_value
+
+
+def test_can_find_via_callback() -> None:
+    # Assemble
+    @dataclass
+    class TestItem:
+        key: int
+        val: int
+
+    find_target = TestItem(3, 4)
+    test_list = [TestItem(1, 2), find_target, TestItem(5, 6)]
+
+    ll = LinkedList.from_list(test_list)
+
+    # Act / Assert
+    found_target = ll.find(callback=lambda x: x.key == find_target.key)
+
+    # Assert
+    assert found_target == find_target
