@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: container-build-and-push
     container:
-      image: armck/data-structures-and-algorithms:${{ github.sha }}
+      image: ${{ needs.container-build-and-push.outputs.container_image }}
       credentials:
         username: ${{ secrets.DOCKER_HUB_ID }}
         password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
@@ -64,7 +64,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: container-build-and-push
     container:
-      image: armck/data-structures-and-algorithms:${{ github.sha }}
+      image: ${{ needs.container-build-and-push.outputs.container_image }}
       credentials:
         username: ${{ secrets.DOCKER_HUB_ID }}
         password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
