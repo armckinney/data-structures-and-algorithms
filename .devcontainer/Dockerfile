@@ -1,5 +1,4 @@
-
-FROM armck/python-base:latest
+FROM armck/python:latest
 
 LABEL   deployable="false" \
     decription="This is the development version of the WEF application container. \
