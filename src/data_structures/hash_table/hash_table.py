@@ -45,17 +45,17 @@ class HashTable(MappedStructure):
         key_hash = self._hash(key)
         self.keys[key] = key_hash
         target_bucket = self._buckets[key_hash]
-        hashobj: HashObject = target_bucket.find(callback=lambda x: x.key == key_hash)
+        hashobj: HashObject = target_bucket.find(callback=lambda x: x.key == key)
 
         if not hashobj:
-            target_bucket.append(HashObject(key_hash, value))
+            target_bucket.append(HashObject(key, value))
         else:
             hashobj.value = value
 
     def get(self, key: Any) -> Any:
         key_hash = self._hash(key)
         target_bucket = self._buckets[key_hash]
-        hashobj: HashObject = target_bucket.find(callback=lambda x: x.key == key_hash)
+        hashobj: HashObject = target_bucket.find(callback=lambda x: x.key == key)
 
         return hashobj.value
 
@@ -63,7 +63,7 @@ class HashTable(MappedStructure):
         key_hash = self._hash(key)
         self.keys.pop(key)
         target_bucket = self._buckets[key_hash]
-        hashobj: HashObject = target_bucket.find(callback=lambda x: x.key == key_hash)
+        hashobj: HashObject = target_bucket.find(callback=lambda x: x.key == key)
 
         if hashobj:
             target_bucket.delete(hashobj)
