@@ -146,3 +146,20 @@ class LinkedListMixin(LinearStructure, ABC):
         self.tail = self.head
         self.head = previous_node
         self.enforce_circular()
+
+    def find(self, value: Optional[Any] = None, callback: Optional[Any] = None) -> Any:
+        # returns value of node
+        this_node = self.head
+
+        while this_node:
+            # compare on callback
+            if callback and callback(this_node.value):
+                break
+
+            # compare direct value
+            elif this_node.value == value:
+                break
+
+            this_node = this_node.next
+
+        return this_node.value if this_node else this_node

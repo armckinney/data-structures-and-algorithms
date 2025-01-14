@@ -1,1 +1,1 @@
-6-New-Data-Structure-Stack
+7-New-Data-Structure-Hash-Table
