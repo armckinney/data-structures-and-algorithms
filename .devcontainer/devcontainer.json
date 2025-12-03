@@ -1,9 +1,9 @@
 {
 	"name": "data-structures-and-algorithms",
 	"dockerComposeFile": [
-		"../docker-compose.yml"
+		"docker-compose.yaml"
 	],
-	"service": "dev-container",
+	"service": "devcontainer",
 	"workspaceFolder": "/workspaces/data-structures-and-algorithms",
 	"postCreateCommand": "cd $WORKSPACE && poetry install",
 	"customizations": {
