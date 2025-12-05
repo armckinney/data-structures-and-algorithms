@@ -1,7 +1,7 @@
-FROM armck/python:3.9.5
+FROM armck/python:3.12.3
 
 LABEL   deployable="false" \
-    decription="This is the development version of the WEF application container. \
+    description="This is the development version of the WEF application container. \
     It includes the application and required development tools."
 
 ARG WORKSPACE=/workspaces/data-structures-and-algorithms
@@ -16,14 +16,15 @@ RUN mkdir /tmp/dockerinstall \
     # install
     && apt update && apt install -y \
     wget \
+    && ln -sf "$(which python3)" "/usr/local/bin/python" \
     # cleanup
     && apt autoremove -y \
     && apt clean -y \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /tmp/dockerinstall
 
-COPY poetry.lock pyproject.toml ${WORKSPACE}/
-RUN cd $WORKSPACE && poetry install --no-root
+COPY uv.lock pyproject.toml ${WORKSPACE}/
+RUN cd $WORKSPACE && uv sync
 
 WORKDIR ${WORKSPACE}
 
