@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Callable, Optional, cast
+from typing import Any, Callable, Optional
 
 from ..core.linear_structure import LinearStructure
 
@@ -28,7 +28,7 @@ class Heap(LinearStructure):
     def pop(self) -> Optional[Any]:
         if self.is_empty():
             return None
-        
+
         if len(self._items) == 1:
             return self._items.pop()
 
@@ -47,7 +47,9 @@ class Heap(LinearStructure):
 
     def _heapify_up(self, index: int) -> None:
         parent_index = (index - 1) // 2
-        if index > 0 and self._comparator(self._items[index], self._items[parent_index]):
+        if index > 0 and self._comparator(
+            self._items[index], self._items[parent_index]
+        ):
             self._swap(index, parent_index)
             self._heapify_up(parent_index)
 
@@ -56,10 +58,14 @@ class Heap(LinearStructure):
         left_child = 2 * index + 1
         right_child = 2 * index + 2
 
-        if left_child < len(self._items) and self._comparator(self._items[left_child], self._items[smallest]):
+        if left_child < len(self._items) and self._comparator(
+            self._items[left_child], self._items[smallest]
+        ):
             smallest = left_child
 
-        if right_child < len(self._items) and self._comparator(self._items[right_child], self._items[smallest]):
+        if right_child < len(self._items) and self._comparator(
+            self._items[right_child], self._items[smallest]
+        ):
             smallest = right_child
 
         if smallest != index:

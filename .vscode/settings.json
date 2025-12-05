@@ -25,7 +25,7 @@
         "diffEditor.ignoreTrimWhitespace": false,
         "editor.formatOnType": true,
         "editor.formatOnSave": true,
-        "editor.defaultFormatter": "ms-python.black-formatter"
+        "editor.defaultFormatter": "charliermarsh.ruff"
     },
     "mypy-type-checker.args": [
         "--config-file=${workspaceFolder}/mypy.ini"
