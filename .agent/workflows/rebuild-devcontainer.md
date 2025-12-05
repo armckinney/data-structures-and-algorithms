@@ -5,7 +5,7 @@ description: Rebuild devcontainer for the current project
 // turbo-all
 1. Stop the dev container and remove it
 ```bash
-docker compose -f .devcontainer/docker-compose.yaml down
+docker compose -f .devcontainer/docker-compose.yaml down --volumes --rmi all
 ```
 
 2. Rebuild the devcontainer image (optional but recommended for a full rebuild)

@@ -5,4 +5,5 @@ services:
       context: ..
     volumes:
       - ..:/workspaces/data-structures-and-algorithms:cached
+      - ~/.gitconfig:/root/.gitconfig:ro
     command: /bin/sh -c "while sleep 1000; do :; done"
