@@ -7,7 +7,6 @@ from .data_structure import DataStructure
 
 
 class MappedStructure(DataStructure, ABC):
-
     @classmethod
     @abstractmethod
     def from_dict(cls, dict: dict) -> MappedStructure:

@@ -1,24 +1,36 @@
-[tool.poetry]
+[project]
 name = "data-structures-and-algorithms"
 version = "0.1.0"
 description = ""
-authors = ["armckinney"]
-packages = [
-    { include ="algorithms", from = "src" }, 
-    { include ="data_structures", from = "src" }
+authors = [{ name = "armckinney" }]
+requires-python = "==3.12.3"
+dependencies = [
+    "ruff>=0.14.8",
 ]
 
-[tool.poetry.dependencies]
-python = "3.9.5"
+[dependency-groups]
+dev = [
+    "mypy>=1.8.0,<2",
+    "pytest>=8.0.0,<9",
+    "ruff>=0.14.8",
+]
 
-[tool.poetry.group.dev.dependencies]
-mypy = "^1.8.0"
-flake8 = "^7.0.0"
-black = "^24.2.0"
-isort = "^5.13.2"
-pytest = "^8.0.0"
-pep8-naming = "^0.13.3"
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/algorithms",
+    "src/data_structures",
+]
+
+[tool.hatch.build.targets.wheel]
+include = [
+    "src/algorithms",
+    "src/data_structures",
+]
+
+[tool.hatch.build.targets.wheel.sources]
+"src/algorithms" = "algorithms"
+"src/data_structures" = "data_structures"
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"

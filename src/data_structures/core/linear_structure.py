@@ -6,7 +6,6 @@ from .data_structure import DataStructure
 
 
 class LinearStructure(DataStructure, ABC):
-
     @classmethod
     @abstractmethod
     def from_list(cls, list: list) -> LinearStructure:

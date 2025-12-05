@@ -9,7 +9,6 @@ from .hash_object import HashObject
 
 
 class HashTable(MappedStructure):
-
     def __init__(self, size: int = 32) -> None:
         self.size = size
 
