@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import json
-from typing import Any, Dict, Optional
+from typing import Any, Dict
 
 from data_structures.core import MappedStructure
 from data_structures.linked_list.doubly_linked_list_node import DoublyLinkedListNode
