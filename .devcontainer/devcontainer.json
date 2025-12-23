@@ -5,7 +5,7 @@
 	],
 	"service": "devcontainer",
 	"workspaceFolder": "/workspaces/data-structures-and-algorithms",
-	"postCreateCommand": "uv sync",
+	"postCreateCommand": "cd $WORKSPACE",
 	"customizations": {
 		"vscode": {
 			"settings": {
