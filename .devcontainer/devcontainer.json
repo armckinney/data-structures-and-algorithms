@@ -5,7 +5,7 @@
 	],
 	"service": "devcontainer",
 	"workspaceFolder": "/workspaces/data-structures-and-algorithms",
-	"postCreateCommand": "cd $WORKSPACE && poetry install",
+	"postCreateCommand": "uv sync",
 	"customizations": {
 		"vscode": {
 			"settings": {
@@ -21,6 +21,7 @@
 					"**/.mypy_cache": true,
 					"**/__pycache__": true
 				},
+				"python.defaultInterpreterPath": ".venv/bin/python",
 				"[python]": {
 					"editor.defaultFormatter": "charliermarsh.ruff",
 					"editor.formatOnSave": true,

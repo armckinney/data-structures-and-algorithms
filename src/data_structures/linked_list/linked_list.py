@@ -14,9 +14,7 @@ class LinkedList(LinkedListMixin):
     def from_list(cls, list: list) -> LinkedList:
         return cast(LinkedList, super().from_list(list))
 
-    def _link(
-        self, node: Optional[LinkedListNode], next_node: Optional[LinkedListNode]
-    ) -> None:
+    def _link(self, node: Optional[LinkedListNode], next_node: Optional[LinkedListNode]) -> None:
         assert isinstance(node, LinkedListNode)
         assert isinstance(next_node, LinkedListNode)
 

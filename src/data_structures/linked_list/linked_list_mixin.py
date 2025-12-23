@@ -14,9 +14,7 @@ class LinkedListMixin(LinearStructure, ABC):
         self.is_circular = circular
 
     @abstractmethod
-    def _link(
-        self, node: Optional[LinkedListNode], next_node: Optional[LinkedListNode]
-    ) -> None:
+    def _link(self, node: Optional[LinkedListNode], next_node: Optional[LinkedListNode]) -> None:
         raise NotImplementedError
 
     @abstractmethod
