@@ -86,9 +86,7 @@ def test_push_changes_next_dequeue() -> None:
         validation_peeks.append(stack.peek())
 
     # Assert
-    assert all(
-        [peek == TEST_LIST[index] for index, peek in enumerate(validation_peeks)]
-    )
+    assert all([peek == TEST_LIST[index] for index, peek in enumerate(validation_peeks)])
 
 
 def test_can_pop() -> None:

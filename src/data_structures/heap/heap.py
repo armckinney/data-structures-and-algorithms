@@ -47,9 +47,7 @@ class Heap(LinearStructure):
 
     def _heapify_up(self, index: int) -> None:
         parent_index = (index - 1) // 2
-        if index > 0 and self._comparator(
-            self._items[index], self._items[parent_index]
-        ):
+        if index > 0 and self._comparator(self._items[index], self._items[parent_index]):
             self._swap(index, parent_index)
             self._heapify_up(parent_index)
 
